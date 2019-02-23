@@ -11,5 +11,14 @@ use think\Controller;
 
 class Base extends Controller
 {
+    public function _initialize(){
+        parent::_initialize();
+        $this->admin = session('user_id');
+    }
 
+    protected function isLogin(){
+        if(is_null($this->admin)){
+            $this->error('请先进行登录'.'admin/Login/index');
+        }
+    }
 }

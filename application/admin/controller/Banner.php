@@ -1,9 +1,8 @@
 <?php
-
 namespace app\admin\controller;
+use app\admin\common\Base;
 
-use think\Controller;
-class Banner extends Controller
+class Banner extends Base
 {
     /**
      * 显示资源列表
@@ -12,6 +11,6 @@ class Banner extends Controller
      */
     public function index()
     {
-        //
+      return  $this->fetch('banner_list');
     }
 }
