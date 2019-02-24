@@ -1,5 +1,4 @@
 {include file='public/header'/}
-    
     <body>
         <div class="x-body">
             <form class="layui-form">
@@ -8,7 +7,7 @@
                         <span class="x-red">*</span>登录名
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="username" name="username" required="" lay-verify="required" value="admin" 
+                        <input type="text" id="username" name="user_name" required="" lay-verify="required" value="{$adminData.user_name}"
                         autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-mid layui-word-aux">
@@ -32,7 +31,7 @@
                         <span class="x-red">*</span>邮箱
                     </label>
                     <div class="layui-input-inline">
-                        <input type="text" id="L_email" name="email" required="" lay-verify="email" value="113664000@qq.com" 
+                        <input type="text" id="L_email" name="email" required="" lay-verify="email" value="{$adminData.email}"
                         autocomplete="off" class="layui-input">
                     </div>
                     <div class="layui-form-mid layui-word-aux">
