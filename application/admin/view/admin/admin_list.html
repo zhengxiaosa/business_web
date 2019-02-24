@@ -9,31 +9,12 @@
             <a class="layui-btn layui-btn-small" style="line-height:1.6em;margin-top:3px;float:right"  href="javascript:location.replace(location.href);" title="刷新"><i class="layui-icon" style="line-height:30px">ဂ</i></a>
         </div>
         <div class="x-body">
-            <form class="layui-form x-center" action="" style="width:80%">
-                <div class="layui-form-pane" style="margin-top: 15px;">
-                  <div class="layui-form-item">
-                    <label class="layui-form-label">日期范围</label>
-                    <div class="layui-input-inline">
-                      <input class="layui-input" placeholder="开始日" id="LAY_demorange_s">
-                    </div>
-                    <div class="layui-input-inline">
-                      <input class="layui-input" placeholder="截止日" id="LAY_demorange_e">
-                    </div>
-                    <div class="layui-input-inline">
-                      <input type="text" name="username"  placeholder="请输入登录名" autocomplete="off" class="layui-input">
-                    </div>
-                    <div class="layui-input-inline" style="width:80px">
-                        <button class="layui-btn"  lay-submit="" lay-filter="sreach"><i class="layui-icon">&#xe615;</i></button>
-                    </div>
-                  </div>
-                </div> 
-            </form>
             <xblock><button class="layui-btn layui-btn-danger" onclick="delAll()"><i class="layui-icon">&#xe640;</i>批量删除</button><button class="layui-btn" onclick="admin_add('添加用户','admin-add.html','600','500')"><i class="layui-icon">&#xe608;</i>添加</button><span class="x-right" style="line-height:40px">共有数据：88 条</span></xblock>
             <table class="layui-table">
                 <thead>
                     <tr>
                         <th>
-                            <input type="checkbox" name="" value="">
+                            <input type="checkbox" name="ids[]" value="">
                         </th>
                         <th>
                             ID
@@ -42,19 +23,13 @@
                             登录名
                         </th>
                         <th>
-                            手机
-                        </th>
-                        <th>
                             邮箱
                         </th>
                         <th>
-                            角色
+                            登陆次数
                         </th>
                         <th>
-                            加入时间
-                        </th>
-                        <th>
-                            状态
+                            最后时间
                         </th>
                         <th>
                             操作
@@ -64,36 +39,28 @@
                 <tbody>
                     <tr>
                         <td>
-                            <input type="checkbox" value="1" name="">
+                            <input type="checkbox"  name="ids[]">
                         </td>
                         <td>
-                            1
+                           {$admin.id}
                         </td>
                         <td>
-                            admin
+                           {$admin.user_name}
                         </td>
                         <td >
-                            18925139194
+                            {$admin.email}
                         </td>
                         <td >
-                            113664000@qq.com
-                        </td>
-                        <td >
-                            超级管理员
+                            {$admin.login_count}
                         </td>
                         <td>
-                            2017-01-01 11:11:42
-                        </td>
-                        <td class="td-status">
-                            <span class="layui-btn layui-btn-normal layui-btn-mini">
-                                已启用
-                            </span>
+                           {$admin.login_text}
                         </td>
                         <td class="td-manage">
                             <a style="text-decoration:none" onclick="admin_stop(this,'10001')" href="javascript:;" title="停用">
                                 <i class="layui-icon">&#xe601;</i>
                             </a>
-                            <a title="编辑" href="javascript:;" onclick="admin_edit('编辑','admin-edit.html','4','','510')"
+                            <a title="编辑" href="javascript:;" onclick="admin_edit('编辑','{:url('admin/admin/edit')}'+'?id='+{$admin.id},'4','','510')"
                             class="ml-5" style="text-decoration:none">
                                 <i class="layui-icon">&#xe642;</i>
                             </a>
@@ -105,8 +72,6 @@
                     </tr>
                 </tbody>
             </table>
-
-            <div id="page"></div>
         </div>
         {include file='public/base_js'/}
         <script>
