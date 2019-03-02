@@ -51,6 +51,10 @@
                       </select>
                     </div>
                 </div>
+
+                <input type="hidden" name="id" value ="{$Think.session.user_id}"/>
+                <input type="hidden" name="is_update" value ="{$Think.session.user_info}"/>
+
                 <div class="layui-form-item">
                     <label for="L_pass" class="layui-form-label">
                         <span class="x-red">*</span>密码
